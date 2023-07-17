@@ -200,6 +200,9 @@ bar {
 #bind mod+n to open file manager
 bindsym Mod1+n exec nautilus
 
+mode "programs" {
+    bindsym v exec alsamixer
+}
 
 #Autolaunch nitrogen to manage wallpapers
 exec always nitrogen --restore
@@ -214,3 +217,7 @@ exec always nitrogen --restore
 # Please remove the following exec line:
 #######################################################################
 exec i3-config-wizard
+
+#Screenshot keybinding
+
+bindsym Print exec maim -s -u | xclip -selection clipboard -t image/png -i
