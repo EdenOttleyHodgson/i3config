@@ -204,8 +204,20 @@ mode "programs" {
     bindsym v exec alsamixer
 }
 
+mode "monitors" {
+    bindsym Left move workspace to output left
+    bindsym Right move workspace to output right
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym Mod1+z mode "default"
+
+}
+
+bindsym Mod1+z mode "monitors"
+
 #Autolaunch nitrogen to manage wallpapers
-exec always nitrogen --restore
+exec nitrogen --restore
 ######################################################################
 # automatically start i3-config-wizard to offer the user to create a
 # keysym-based config which used their favorite modifier (alt or windows)
@@ -221,3 +233,22 @@ exec i3-config-wizard
 #Screenshot keybinding
 
 bindsym Print exec maim -s -u | xclip -selection clipboard -t image/png -i
+
+#Border configs
+default_border none 
+
+
+#Default Workspace Assignments
+assign [class="firefox"] 1
+assign [class="discord"] 2
+assign [class="spotify"] 7
+assign [class="steam"] 3
+assign [class="lutris"] 4
+
+
+
+
+#Startup programs
+exec firefox
+exec discord
+
