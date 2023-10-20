@@ -213,7 +213,6 @@ mode "programs" {
 mode "monitors" {
     bindsym Left move workspace to output left
     bindsym Right move workspace to output right
-
     bindsym Return mode "default"
     bindsym Escape mode "default"
     bindsym Mod1+z mode "default"
@@ -224,16 +223,23 @@ bindsym Mod1+z mode "monitors"
 
 bindsym Mod1+Shift+p mode "power management"
 mode "power management" {
-    bindsym Mod1+Shift+s exec shutdown
+    bindsym Mod1+Shift+s exec shutdown now
     bindsym Mod1+r exec reboot
     bindsym h exec systemctl suspend 
+    bindsym u exec brightnessctl s +5%
+    bindsym d exec brightnessctl s 5%-
+    bindsym Shift+d exec brightnessctl s 1%-
+    bindsym Shift+u exec brightnessctl s +1%
+    bindsym Ctrl+u exec brightnessctl s +10%
+    bindsym Ctrl+d exec brightnessctl s 10-%
+
     bindsym Return mode "default"
     bindsym Escape mode "default"
     bindsym Mod1+Shift+p mode "default"
 }
 
-bindsym Mod1+Print exec flameshot gui
 
+bindsym Mod1+Shift+s exec flameshot gui
 #Autolaunch nitrogen to manage wallpapers
 exec nitrogen --restore
 
